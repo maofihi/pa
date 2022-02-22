@@ -1,0 +1,29 @@
+{
+    "variables": {
+        "aws_access_key": "{{env `aws_access_key`}}",
+        "aws_secret_key": "{{env `aws_secret_key`}}"
+        },
+    "variables": {
+      "destination_regions": "us-west-1,us-west-2"
+    },
+    "builders": [
+      {
+        "ami_name": "packer-qs-{{timestamp}}",
+        "instance_type": "t2.micro",
+        "region": "us-east-1",
+        "source_ami_filter": {
+          "filters": {
+            "name": "*ubuntu-xenial-16.04-amd64-server-*",
+            "root-device-type": "ebs",
+            "virtualization-type": "hvm"
+          },
+          "most_recent": true,
+          "owners": ["041378662690"]
+        },
+        "ami_regions": "{{user `destination_regions`}}",
+        "ssh_username": "ubuntu",
+        "type": "amazon-ebs"
+      }
+    ]
+  }
+  
