@@ -3,10 +3,8 @@
         "aws_access_key": "{{env `aws_access_key`}}",
         "aws_secret_key": "{{env `aws_secret_key`}}"
         },
-    "variables": {
-      "destination_regions": "us-west-1,us-west-2"
-    },
-    "builders": [
+         
+        "builders": [
       {
         "ami_name": "packer-qs-{{timestamp}}",
         "instance_type": "t2.micro",
