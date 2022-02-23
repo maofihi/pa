@@ -12,6 +12,6 @@
   "source_ami": "ami-a025aeb6",
   "instance_type": "t2.micro",
   "ssh_username": "ubuntu",
-  "ami_name": "packer-example {{timestamp}}"
+  "ami_name": "packerr-cdhb-{{timestamp}}"
   }]
   }
