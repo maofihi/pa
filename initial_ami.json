@@ -6,6 +6,8 @@
     "builders": [{
     "type": "amazon-ebs",
     "region": "us-east-1",
+    "access_key": "{{user `access_key`}}",
+    "secret_key": "{{user `secret_key`}}",
     "source_ami": "ami-a025aeb6",
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
