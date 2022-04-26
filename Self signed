@@ -39,9 +39,12 @@ https://doc.nexthink.com/Documentation/Nexthink/latest/InstallationAndConfigurat
 
 https://support.vectra.ai/s/article/KB-VS-1261
 
+New-NetFirewallRule -DisplayName "ALLOW TCP PORT 80" -Direction inbound -Profile Any -Action Allow -LocalPort 80 -Protocol TCP
+New-NetFirewallRule -DisplayName "WHITELIST TCP" -Direction inbound -Profile Any -Action Allow -LocalPort 80,443,8753,9000, -Protocol TCP
+$rule = "WHITELIST TCP"
+Get-NetFirewallRule -DisplayName $rule | ft -Property Name, DisplayName, @{Name='Protocol';Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}}, @{Name='LocalPort';Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}}, @{Name='RemotePort';Expression={($PSItem | Get-NetFirewallPortFilter).RemotePort}}, @{Name='RemoteAddress';Expression={($PSItem | Get-NetFirewallAddressFilter).RemoteAddress}}, Enabled, Profile, Direction, Action
 
- 
- 
+
 
 
 
