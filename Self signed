@@ -46,6 +46,9 @@ Get-NetFirewallRule -DisplayName $rule | ft -Property Name, DisplayName, @{Name=
 
 
 Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability –Online
+Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName, State
+Add-WindowsCapability –online –Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
+
 
 
 
