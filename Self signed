@@ -51,12 +51,7 @@ Add-WindowsCapability –online –Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0
 
 http://guidgenerator.com/
 
-Identity (Entity ID):
-https://auth.patientexperience.org.nz/CDHB
-For Reply (ACS):
-https://auth.patientexperience.org.nz/CDHB/samlv2/acs
-For Sign on URL:
-https://auth.patientexperience.org.nz/CDHB
+
 
 
 
