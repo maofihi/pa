@@ -51,6 +51,50 @@ Add-WindowsCapability –online –Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0
 
 http://guidgenerator.com/
 
+Overview
+
+To enable single sign-on with Testeee, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Testeee.
+
+Note: The web guide for using the Azure portal to configure this application can be found here.
+
+Prerequisites
+You must have a valid tenant or subscription with Testeee
+
+Your tenant or subscription must provide the ability to configure a third-party SAML identity provider. To determine this, view your application’s documentation or contact the application provider.
+
+Configure Testeee for single sign on
+For users to be able to sign in using their organization account, Testeee must be manually configured to use your Azure Active Directory as a SAML identity provider. Testeee cannot prompt or otherwise allow users to sign in using Azure Active Directory if it has not been configured to do so.
+
+To configure Testeee for single sign-on:
+
+Review the process for configuring SAML identity providers in Testeee. To determine the correct process, view the documentation for Testeee or contact your Testeee representative for more information.
+
+Note: Some guidance on how to configure Testeee can be found on Azure.com, and we are in the process of migrating the application-specific steps to this guide. The older article on how to configure Testeee can be found here, where only the steps related to uploading the Azure AD files and URLs to Testeee need to be followed.
+
+During this process, you will be prompted to provide files and URLs that correspond to Azure Active Directory. When prompted, use the files and URLs shown below:
+
+SAML Single Sign-On Service URL: https://login.microsoftonline.com/698fbfe7-4a04-4920-9d40-6a2fb046b92a/saml2
+
+SAML Entity ID: https://sts.windows.net/698fbfe7-4a04-4920-9d40-6a2fb046b92a/
+
+Sign-Out URL: https://login.microsoftonline.com/698fbfe7-4a04-4920-9d40-6a2fb046b92a/saml2
+
+SAML Signing Certificate - Base64 encoded
+
+SAML Signing Certificate - Raw
+
+SAML XML Metadata
+
+Once this information has been provided and configured in Testeee, Testeee will begin to require or otherwise allow users to sign in using your instance of Azure Active Directory.
+
+Next steps
+To ensure users can sign-in to Testeee after it has been configured to use Azure Active Directory, review the following tasks and topics:
+
+User accounts must be pre-provisioned into Testeee prior to sign-in. If Testeee supports SCIM provisioning, see the Provisioning tab. Otherwise, contact Testeee support to inquire about your provisioning options.
+
+Users must be assigned access to Testeee in Azure AD to sign-in. To assign users, see Users.
+
+To configure access polices for Testeee users, see Access Policies.
 
 
 
