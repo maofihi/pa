@@ -96,9 +96,13 @@ Users must be assigned access to Testeee in Azure AD to sign-in. To assign users
 
 To configure access polices for Testeee users, see Access Policies.
 
+three main backup rotation schemes in tape backups
 
+GFS scheme. The most reliable option out of the avialable options, the Grandfather-Father-Son scheme is also the most popular backup rotation scheme out there. It relies on keeping multiple levels of backups, from daily to weekly and monthly backups. One potential issue with this approach is that it is probably the least cost-effective, requiring more tape to execute properly – and thus, generating a higher upkeep cost for the company in question.
 
+Tower of Hanoi. A backup rotation scheme that acts as a sort of a middle ground between the most expensive and the most affordable ones, Tower of Hanoi is at its best when working with small or medium-sized businesses with relatively small data volumes. While it does cost less than the GFS scheme, it is also rather complicated in its implementation, creating a high possibility for an error to be made when swapping tape cartridges. Additionally, this rotation scheme has a requirement of a full backup for each of its sessions, making the entire process rather long and storage-intensive.
 
+Five-tape scheme. The most cost-effective option out of the three, the five-tape rotation scheme is at its best when used for smaller businesses that do not have the requirement of archiving outdated information.
 
 
 
