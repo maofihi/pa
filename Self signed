@@ -104,6 +104,101 @@ Tower of Hanoi. A backup rotation scheme that acts as a sort of a middle ground 
 
 Five-tape scheme. The most cost-effective option out of the three, the five-tape rotation scheme is at its best when used for smaller businesses that do not have the requirement of archiving outdated information.
 
+Data protection system should adher to the policies that have been determined. 
+moving a backup into long-term storage
+No one in IT should be determining how long back‐ups or archives should be kept; this should be determined by legal requirements, organizational requirements, and regulatory requirements.
+Just like general FIFO rotation schemes, the daily weeekly, and monthly backup tapes are related using a first in, first out backup system.Retention should also specify how long things should be kept on each tier.
+
+3-2-1 rule, which is: three versions of your data, on two different media, one of which is stored somewhere.
+A restore returns a single thing to a single point in time from the backup.
+A retrieve returns many things from a big date range from archive.
+
+An archive is a copy of data stored in a separate location, made to serve as a reference
+copy, and stored with enough metadata to find the data in question without knowing
+where it came from. It needs to be a complete copy that does not require the original to function.
+
+Archives are not used to restore a server or file to its original glory. They are typically
+used to find data for purposes other than for which it was originally created. It may be
+a related purpose, but it is almost always a different purpose.
+
+A retrieve is very different from a restore. As mentioned previously, a restore needs
+the name of a server, directory, database, filesystem, filename, tablename, and actual
+date that you want to restore the system to. When doing a retrieve, you typically have
+none of that information.
+A retrieve gathers a group of related information based on its content and associated
+metadata.
+
+When you are doing a retrieve, you are usually looking for information, not a server
+or file.
+
+Physical air gap
+A regular rotation schedule brought expired tapes back on-site after two weeks.
+
+ retention is one of the things that are monitored in
+your backup and archive system. You should ensure that the defined retention poli‐
+cies are being adhered to.
+
+A synthetic full backup is a backup that behaves
+as a full backup during restores, but it is not produced via a typical full backup. There
+are three main methods of creating a synthetic full backup.
+
+Synthetic full by copying. The first and most common method of creating a synthetic
+full backup is to create one by copying available backups from one device to another.
+The backup system keeps a catalog of all data it finds during each backup, so at any
+given point, it knows all the files or blocks—and which versions of those files or
+blocks—that would be on a full backup if it were to create one in the traditional way.
+It simply copies each of those files from one medium to another. This method will
+work with tape or disk as long as multiple devices are available.The big advantage of this method of creating a synthetic full backup is that this pro‐
+cess can be run any time of day without any impact to the backup clients, because the
+servers or VMs for which you are creating the synthetic full backup are completely
+uninvolved
+
+An important consideration, when ascertaining what type of archive will work for
+your organization, is how you’ll be storing and retrieving the data in the future. If it’s
+thousands of plaintext log files, it’s reasonable to expect that those files will be reada‐
+ble by some system when you need them.
+
+The backup team will invariably be involved in the operation of production data stor‐
+age, whereas the team in charge of the archive system may well reside in the records
+management or compliance part of the organization, and could even be entirely sepa‐
+rate from the technology function of the organization.
+
+It’s important to consider whether the archive system you deploy will be separate
+from your backup environment or whether it will be integrated with it. Ultimately,
+the safe storage and protection of archive data should be considered critical to a
+healthy data protection and retention system, but that doesn’t mean that the archive
+system needs to be controlled from the backup system.
+
+Your backup data can be used to re-create the data
+from a particular point in time on your production system if it goes bang, but your
+archive data is very much a historically important artifact that should be preserved
+and protected.
+
+We kept track of every piece of media via a barcode. These tapes were scanned by our
+personnel as well as the vaulting vendor’s staff. Tapes were scanned into a box when
+they left and then scanned out of the box when they were put on a shelf in the vault.
+We had a system that would check that the tapes we put into the box had shown up in the vault, and the tapes that they took out of the vault showed back up in our datacenter. A regular rotation schedule brought expired tapes back on-site after two weeks.
+Any access to off-site tapes outside of the regular rotation schedule was highly regula‐
+ted and well-documented.
+
+• Total number of tapes in the environment and the identities
+• Number and identities of tapes in scratch
+• Number and identities of tapes used and still onsite
+• Number and identities of tapes used and offsite
+
+When architecting backup systems, it is important to consider data to be backed up as well as data
+that will be archived or stored for long periods. Although backups and archives are related, they are
+distinctly different in character. Backups should be used to provide short- and medium-term protection
+of data for purposes of restoration in the event of data loss, whereas archives provide long-term storage
+of data in immutable formats, on static or protected media. 
+
+Unfortunately, backups in many organizations tend to be used as long-term, “archive-like” storage
+of data and are typically used to satisfy internal or regulatory requirements. They are typically held for
+periods of more than 5 years and are stored in offsite locations under controlled conditions. As noted
+previously, backups should not be considered as long-term archives for a number of reasons. First of all
+is the problem of recoverability. Although the media itself might still be readable (some media has rated
+static life spans of more than 30 years under controlled conditions), the devices that are needed to
+actually read the tapes will most likely be gone well before that time.
 
 
 
