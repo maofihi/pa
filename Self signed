@@ -218,6 +218,9 @@ An archive is a copy of data stored in a separate location, made to serve as a r
 copy, and stored with enough metadata to find the data in question without knowing
 where it came from.
 
+A backup is a copy of data stored separately from the original and used to restore that
+data to its former state, usually after the data has been deleted or damaged in some
+way.
 
 
 
