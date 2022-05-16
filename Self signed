@@ -201,6 +201,22 @@ static life spans of more than 30 years under controlled conditions), the device
 actually read the tapes will most likely be gone well before that time.
 
 To me they are two very separate actions that serve two very different purposes. 
+hey are not archives; they are old
+backups.
+Moving a backup from an expensive storage medium to a less expensive
+medium that is designed for long-term storage is not archiving a backup. There is no
+such thing as archiving a backup; you are moving a backup into long-term storage.
+
+Old backups do not magically turn into archives any more than old grape juice turns
+into wine. If you want wine, you need to set out to make wine. If you want archives,
+you need to make archives. Stop treating old backups as archives, because they almost
+always are really bad at being archives. How long something is stored does not deter‐
+mine whether it’s a backup or archive; it’s why and how it was stored that makes it so.
+Now that we’ve covered what isn’t an archive,
+
+An archive is a copy of data stored in a separate location, made to serve as a reference
+copy, and stored with enough metadata to find the data in question without knowing
+where it came from.
 
 
 
