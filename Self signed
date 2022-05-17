@@ -177,7 +177,9 @@ and protected.
 We kept track of every piece of media via a barcode. These tapes were scanned by our
 personnel as well as the vaulting vendor’s staff. Tapes were scanned into a box when
 they left and then scanned out of the box when they were put on a shelf in the vault.
-We had a system that would check that the tapes we put into the box had shown up in the vault, and the tapes that they took out of the vault showed back up in our datacenter. A regular rotation schedule brought expired tapes back on-site after two weeks.
+We had a system that would check that the tapes we put into the box had shown up in the vault,
+and the tapes that they took out of the vault showed back up in our datacenter. 
+A regular rotation schedule brought expired tapes back on-site after two weeks.
 Any access to off-site tapes outside of the regular rotation schedule was highly regula‐
 ted and well-documented.
 
