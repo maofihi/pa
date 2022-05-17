@@ -224,6 +224,13 @@ A backup is a copy of data stored separately from the original and used to resto
 data to its former state, usually after the data has been deleted or damaged in some
 way.
 
+Morning Team, I have an induction at CCL DC this morning, won't be at Standup.
+MY updates: The draft doc shows that only 516+x LTO-7 tapes will be in rotations with a retention(2,15) or (2,14).
+However, there are some unaligned policies (-><-) b/n the written and CommVault (this currently hampering my progress).
+
+Backups and archives are not mutually exclusive. As discussed previously, the use of archives prior
+to executing backups can significantly enhance the performance of the backups by reducing the amount
+of data required to be backed up at any particular point in time.
 
 
 
