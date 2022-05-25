@@ -232,5 +232,7 @@ Backups and archives are not mutually exclusive. As discussed previously, the us
 to executing backups can significantly enhance the performance of the backups by reducing the amount
 of data required to be backed up at any particular point in time.
 
+https://gandalfcode.github.io/gandalf-school/installation.pdf
+
 
 
