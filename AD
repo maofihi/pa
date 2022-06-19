@@ -1,0 +1,1 @@
+Get-ADObject -LDAPFilter "(mS-DS-CreatorSID=*)"  -Properties * | Format-Table ObjectClass, Name, DistinguishedName, @{N="Creator"; E={(Get-ADUser -Identity $($_."mS-DS-CreatorSID")).Name}} -AutoSize 
