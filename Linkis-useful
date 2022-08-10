@@ -8,3 +8,5 @@ https://mushaaf.net/https-www-youtube-com-channel-uclop2-xarme45pg9x7umfoqsub_co
 https://thesysadminchannel.com/solved-add-windowscapability-failed-error-code-0x800f0954-rsat-fix/ OpenSSH setup.
 
 https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell
+
+XenDesktopVDASetup.exe /quiet /noreboot /masterimage /Enable_HDX_PORTS /enable_framehawk_port /Enable_REAL_TIME_TRANSPORT /optimize /controllers "xdc01.corp.local xdc02.corp.local" /Exclude "Citrix Telemetry Service"
