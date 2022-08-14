@@ -11,3 +11,8 @@ https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_i
 https://www.carlstalhood.com/citrix-virtual-delivery-agent-vda-1912-ltsr/
 
 XenDesktopVDASetup.exe /quiet /noreboot /masterimage /Enable_HDX_PORTS /enable_framehawk_port /Enable_REAL_TIME_TRANSPORT /optimize /controllers "xdc01.corp.local xdc02.corp.local" /Exclude "Citrix Telemetry Service"
+
+SQL
+https://www.sqlrx.com/steps-for-installing-sql-server-alwayson-availability-groups/
+
+https://www.sqlrx.com/prerequisites-for-installing-sql-server-alwayson/
