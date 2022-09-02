@@ -16,3 +16,10 @@ SQL
 https://www.sqlrx.com/steps-for-installing-sql-server-alwayson-availability-groups/
 
 https://www.sqlrx.com/prerequisites-for-installing-sql-server-alwayson/
+https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configurespf.htm
+https://webhostinggeeks.com/howto/how-to-add-spf-record-in-bind-dns-zone-on-linux/
+
+Recursive DNS: Recursive requests: With these requests your server will attempt to find the website in question in its local cache. 
+If it cannot find an answer it will query other DNS servers on your behalf until it finds the address. 
+It will then respond to the original request with the results from each server's query.
+perl -pi -e 's/recursion yes/recursion no/g' /etc/named.conf;systemctl restart named
