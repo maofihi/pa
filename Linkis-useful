@@ -19,6 +19,11 @@ https://www.sqlrx.com/prerequisites-for-installing-sql-server-alwayson/
 https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configurespf.htm
 https://webhostinggeeks.com/howto/how-to-add-spf-record-in-bind-dns-zone-on-linux/
 
+scribd.com.             3600    IN      TXT     "v=spf1
+include:_spf.google.com include:servers.mcsv.net include:mail.zendesk.com
+include:mailgun.org include:spf.tipalti.com include:m.lessonly.com include:ap.rp.oracleemaildelivery.com
+~all"
+
 Recursive DNS: Recursive requests: With these requests your server will attempt to find the website in question in its local cache. 
 If it cannot find an answer it will query other DNS servers on your behalf until it finds the address. 
 It will then respond to the original request with the results from each server's query.
