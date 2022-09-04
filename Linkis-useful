@@ -24,6 +24,18 @@ include:_spf.google.com include:servers.mcsv.net include:mail.zendesk.com
 include:mailgun.org include:spf.tipalti.com include:m.lessonly.com include:ap.rp.oracleemaildelivery.com
 ~all"
 
+Adding and amending DNS records does require some experience. Having multiple SPF records for a single domain can cause spam classification issues. 
+My client, who was having Mailchimp campaign delivery issues had the following two SPF records setup on their one domain; 
+v=spf1 include:_spf.google.com ~all (for Google Apps email/Gmail) and v=spf1 include:servers.mcsv.net ?all (for Mailchimp).
+
+I recommended that my client change their SPF records so that they have a single SPF record including both Google Apps email and Mailchimp SPF requirements in a single record thus v=spf1 include:_spf.google.com include:servers.mcsv.net ~all.
+Tool for DNS: https://tools.wordtothewise.com/
+vim /var/named/chroot/var/named/ehowstuff.local
+service named restart
+
+C:\>nslookup For Windows 
+host -t txt ehowstuff.local  for Linux
+
 Recursive DNS: Recursive requests: With these requests your server will attempt to find the website in question in its local cache. 
 If it cannot find an answer it will query other DNS servers on your behalf until it finds the address. 
 It will then respond to the original request with the results from each server's query.
