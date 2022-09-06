@@ -40,3 +40,6 @@ Recursive DNS: Recursive requests: With these requests your server will attempt 
 If it cannot find an answer it will query other DNS servers on your behalf until it finds the address. 
 It will then respond to the original request with the results from each server's query.
 perl -pi -e 's/recursion yes/recursion no/g' /etc/named.conf;systemctl restart named
+
+diskmgmt.msc
+MMC Microsoft Management Console (MMC)
