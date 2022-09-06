@@ -49,3 +49,4 @@ MMC Microsoft Management Console (MMC)
 sudo yum install /path/to/installer_package.rpm
 sudo yum remove falcon-sensor
 sudo /opt/CrowdStrike/falconctl -s --cid=<CID>
+systemctl start falcon-sensor
