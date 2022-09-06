@@ -45,5 +45,7 @@ perl -pi -e 's/recursion yes/recursion no/g' /etc/named.conf;systemctl restart n
 
 diskmgmt.msc
 MMC Microsoft Management Console (MMC)
+
+sudo yum install /path/to/installer_package.rpm
 sudo yum remove falcon-sensor
 sudo /opt/CrowdStrike/falconctl -s --cid=<CID>
