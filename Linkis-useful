@@ -18,6 +18,8 @@ https://www.sqlrx.com/steps-for-installing-sql-server-alwayson-availability-grou
 https://www.sqlrx.com/prerequisites-for-installing-sql-server-alwayson/
 https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configurespf.htm
 https://webhostinggeeks.com/howto/how-to-add-spf-record-in-bind-dns-zone-on-linux/
+https://answers.uillinois.edu/illinois/page.php?id=93943
+https://oit.duke.edu/help/articles/kb0035319
 
 scribd.com.             3600    IN      TXT     "v=spf1
 include:_spf.google.com include:servers.mcsv.net include:mail.zendesk.com
@@ -43,3 +45,5 @@ perl -pi -e 's/recursion yes/recursion no/g' /etc/named.conf;systemctl restart n
 
 diskmgmt.msc
 MMC Microsoft Management Console (MMC)
+sudo yum remove falcon-sensor
+sudo /opt/CrowdStrike/falconctl -s --cid=<CID>
