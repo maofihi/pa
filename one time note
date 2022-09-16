@@ -1,0 +1,2 @@
+.NET Framework 4.8 runs side-by-side with the .NET Framework 3.5 SP1 and earlier versions,
+but it performs an in-place update for the .NET Framework 4, 4.5, 4.5.1, 4.5.2, etc
