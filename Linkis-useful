@@ -20,6 +20,7 @@ https://docs.oracle.com/en-us/iaas/Content/Email/Tasks/configurespf.htm
 https://webhostinggeeks.com/howto/how-to-add-spf-record-in-bind-dns-zone-on-linux/
 https://answers.uillinois.edu/illinois/page.php?id=93943
 https://oit.duke.edu/help/articles/kb0035319
+https://www.golinuxcloud.com/setup-bind-dns-server-rocky-linux-8/
 
 scribd.com.             3600    IN      TXT     "v=spf1
 include:_spf.google.com include:servers.mcsv.net include:mail.zendesk.com
