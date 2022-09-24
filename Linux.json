@@ -1,1 +1,2 @@
 #packer for Linux
+yum install dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers 
