@@ -52,3 +52,20 @@ sudo yum install /path/to/installer_package.rpm
 sudo yum remove falcon-sensor
 sudo /opt/CrowdStrike/falconctl -s --cid=<CID>
 systemctl start falcon-sensor
+
+Network Teaming in linux:
+https://www.thegeekdiary.com/centos-rhel-7-how-to-create-an-interface-bonding-nic-teaming-using-nmcli/
+https://www.cyberithub.com/network-bonding-teaming-in-linux/
+1. #nmcli connection //this to see the device/nic like enp0s0,enp0s3,enp0s8,enp2s0, enp2s0etc
+2. Create bond0 entry in modprobe.d
+3. Create bond0 Interface // cat /etc/sysconfig/network-scripts/ifcfg-bond0
+4.ifdown enp0s0  // before edit
+5.Configure First Slave Interface
+6. ifdown enp0s8
+7. Configure Second Slave Interface
+8.ifup ifcfg-enp0s0 
+9.ifup ifcfg-enp0s8 or nmcli connection up enp0s0
+10.nmcli con load /etc/sysconfig/network-scripts/ifcfg-bond0 or service network restart
+11. nmcli con reload
+12. ip link show or ip addr sh
+2.
