@@ -68,4 +68,6 @@ https://www.cyberithub.com/network-bonding-teaming-in-linux/
 10.nmcli con load /etc/sysconfig/network-scripts/ifcfg-bond0 or service network restart
 11. nmcli con reload
 12. ip link show or ip addr sh
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_networkmanager_command_line_tool_nmcli
 2.
