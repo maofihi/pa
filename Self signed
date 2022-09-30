@@ -16,7 +16,14 @@ https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-s
 https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols
 
 https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals?WT.mc_id=azureportalcard_ent_apps_-inproduct-azureportal
-
+1.create folder and put the old pfx in that folder
+2.openssl pkcs12 -in riccerrt.pfx -nocerts -out tik.key //extract key
+3.openssl pkcs12 -in riccerrt.pfx -clcerts -nokeys -out tik.crt //extract crt
+4 openssl x509 -x509toreq -in tik.crt -signkey tik.key -out newtik.csr //export csr from the expired
+5.openssl x509 -req -days 730 -in newtik.csr -signkey tik.key -out newtik.crt //renew
+6.openssl req -noout -text -in newtik.csr // verify 
+7.openssl pkcs12 -inkey tik.key -in newtik.crt -export -out newtik.pfx //combine
+8.import into the server
 
 Topics:
 •     Citrix ADC - Getting Started
