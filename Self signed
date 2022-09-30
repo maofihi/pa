@@ -7,6 +7,7 @@ https://supporthost.in/how-to-install-openssl-on-windows-server-2019
 
 https://www.digicert.com/kb/ssl-support/certificate-pfx-file-export-import-iis-10.htm
 openssl pkcs12 -in [yourfile.pfx] -nocerts -out [drlive.key]
+https://www.golinuxcloud.com/renew-self-signed-certificate-openssl/
 
 https://www.golinuxcloud.com/mutual-tls-authentication-mtls
 https://fusionauth.io/docs/v1/tech/identity-providers/samlv2/
