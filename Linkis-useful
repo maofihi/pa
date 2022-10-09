@@ -75,6 +75,9 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/ne
 https://techcommunity.microsoft.com/t5/itops-talk-blog/step-by-step-guide-how-to-configure-microsoft-local/ba-p/2806185
 
 DMZ
+# systemctl unmask firewalld
+# systemctl start firewalld
+# systemctl enable firewalld
 #firewall-cmd --get-zones
 # firewall-cmd --list-all-zones
 # firewall-cmd --zone=zone-name --list-all
