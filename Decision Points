@@ -11,6 +11,9 @@ of later operating systems to be compatible with software made for earlier versi
 Cost: Cost is always a factor when specifying new systems. Microsoft has annual licensing fees that apply to users, servers and other software,
 as do many other software companies. Ultimately, the choice of operating system will be affected by available hardware, 
 staff resources and skill, cost of purchase, maintenance, and projected future requirements. So, Ubuntu linux is opensource with no costs.
+Open source software is a collaboration of different people with different needs and backgrounds all working together to make something better
+than any one of them could have made individually. Standards are what makes this possible, and the many organizations that create, 
+maintain and promote them are integral to the industry.
 Interface: GUI and CLI
 Security: For the most part, concerns over security have been addressed through the large open source community, 
 which monitors kernel changes for vulnerabilities and provides bug reporting and fixes at a much larger scale than closed source vendors can achieve.
