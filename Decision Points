@@ -1,0 +1,18 @@
+Decision Points:
+Role: Will the machine be accessed remotely by many users or provide services to remote users? Then it’s a server.
+Function:Is there specific software it needs to run, or specific functions it needs to perform? Will there be hundreds, 
+even thousands, of these machines running at the same time? What is the skill-set of the team managing the computer and software?
+Life Cycle: n an enterprise server environment, 
+maintenance and release cycles are critical considerations because it is time-consuming and expensive to do major upgrades. 5 years
+‌⁠Stability:Production servers typically use stable software unless needed features are not available,
+and the risk of running code that has not been thoroughly tested is outweighed by the utility provided.
+Compatibility:Another loosely-related concept is backward compatibility which refers to the ability
+of later operating systems to be compatible with software made for earlier versions.
+Cost: Cost is always a factor when specifying new systems. Microsoft has annual licensing fees that apply to users, servers and other software, as do many other software companies. Ultimately, the choice of operating system will be affected by available hardware, 
+staff resources and skill, cost of purchase, maintenance, and projected future requirements.
+Interface: GUI and CLI
+Security: For the most part, concerns over security have been addressed through the large open source community, 
+which monitors kernel changes for vulnerabilities and provides bug reporting and fixes at a much larger scale than closed source vendors can achieve.
+Ubuntu: is the most popular Debian-derived distribution. It is the creation of Canonical, a company that was made to further the 
+growth of Ubuntu and makes money by providing support. Ubuntu has several different variants for server and various specialized applications.
+They also offer an LTS version that is kept up-to-date for 3 5 years on servers, which gives companies they work for confidence to build solutions based on a stable distribution.
