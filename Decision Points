@@ -8,11 +8,15 @@ maintenance and release cycles are critical considerations because it is time-co
 and the risk of running code that has not been thoroughly tested is outweighed by the utility provided.
 Compatibility:Another loosely-related concept is backward compatibility which refers to the ability
 of later operating systems to be compatible with software made for earlier versions.
-Cost: Cost is always a factor when specifying new systems. Microsoft has annual licensing fees that apply to users, servers and other software, as do many other software companies. Ultimately, the choice of operating system will be affected by available hardware, 
-staff resources and skill, cost of purchase, maintenance, and projected future requirements.
+Cost: Cost is always a factor when specifying new systems. Microsoft has annual licensing fees that apply to users, servers and other software,
+as do many other software companies. Ultimately, the choice of operating system will be affected by available hardware, 
+staff resources and skill, cost of purchase, maintenance, and projected future requirements. So, Ubuntu linux is opensource with no costs.
 Interface: GUI and CLI
 Security: For the most part, concerns over security have been addressed through the large open source community, 
 which monitors kernel changes for vulnerabilities and provides bug reporting and fixes at a much larger scale than closed source vendors can achieve.
 Ubuntu: is the most popular Debian-derived distribution. It is the creation of Canonical, a company that was made to further the 
 growth of Ubuntu and makes money by providing support. Ubuntu has several different variants for server and various specialized applications.
 They also offer an LTS version that is kept up-to-date for 3 5 years on servers, which gives companies they work for confidence to build solutions based on a stable distribution.
+
+By creating a community of developers and users, accountability for bugs, security vulnerabilities, and compatibility issues became a shared responsibility. 
+This new, global community of computer enthusiasts was empowered by the growing availability of faster internet services and the world wide web.
