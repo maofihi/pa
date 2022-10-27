@@ -1,0 +1,21 @@
+https://www.oracle.com/database/technologies/xe-downloads.html
+
+Oracle Database is a multi-model database management system intially realesed in 1979. Propritery.
+Multi-model: - Relational, JSON, XML, Graph, Spatial, Blockchain, Object, and Key/Value data.
+
+Oracle Database Versions
+========================
+Oracle 8i, 9i Starting in 1999
+Oracle 10g, 11g Starting in 2003
+Oracle 12c Starting 2013 (on-prem and in-cloud)
+========================
+In addition to many new features, 12c implements a multitenant architecture, which enables the creation of pluggable databases (PDBs) in a multitenant container database (CDB). 
+
+Today, we will see a demo for 21c- Released in 2021. Oracle Database 21c XE -Free for developers. excellent platform for DBAs to educate themselves about the latest advancements that Oracle Database 21c provides.
+
+Works on both Window and
+	
+Next Release will be 23c Long Term Release
+
+https://www.oracle.com/database/technologies/xe-downloads.html
+==============================================================
