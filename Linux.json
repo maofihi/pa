@@ -1,2 +1,17 @@
-#packer for Linux
+for vertualbox guest os mizimization
 yum install dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers 
+
+
+Security
+
+1. It's better to restrict users who can [su] to root if you enable root account like follows. For using by Sudo, 
+it's possible to limit to prohibit shells in sudoers config.
+2. For [su] command restriction, set like follows. 
+3.  root@localhost:~# vi /etc/pam.d/su
+# line 15 : uncomment and add a group which is allow to run [su] command
+
+auth       required   pam_wheel.so  group=admcdhb
+
+# add an user you allowed to run [su] to the group you set above
+
+root@localhost:~# usermod -aG admcdhb mele 
