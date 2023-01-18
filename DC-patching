@@ -1,0 +1,128 @@
+# Get a list of domain controllers
+$domainControllers = Get-ADDomainController -Filter *
+
+# Iterate through each domain controller
+foreach ($dc in $domainControllers) {
+    # Connect to the domain controller
+    $session = New-PSSession -ComputerName $dc.HostName
+
+    # Copy the manual patch to the domain controller
+    Copy-Item -Path "\\path\to\patch.exe" -Destination "C:\patches\" -ToSession $session
+
+    # Install the manual patch
+    Invoke-Command -Session $session -ScriptBlock {Start-Process "C:\patches\patch.exe" -ArgumentList '/install' -Wait}
+
+    # Restart the domain controller if necessary
+    Restart-Computer -ComputerName $dc.HostName -Force
+}
+
+
+# Get a list of domain controllers
+$domainControllers = Get-ADDomainController -Filter *
+
+# Iterate through each domain controller
+foreach ($dc in $domainControllers) {
+    # Copy the manual patch to the domain controller
+    Copy-Item -Path "\\path\to\patch.exe" -Destination "C:\patches\" -ToSession $session
+
+    # Install the manual patch
+    Invoke-Command -ComputerName $dc.HostName -ScriptBlock {Start-Process "C:\patches\patch.exe" -ArgumentList '/install' -Wait}
+
+    # Prompt for confirmation before restarting the domain controller
+    $restart = Read-Host "Do you want to restart the domain controller $($dc.HostName)? (Y/N)"
+    if ($restart -eq "Y") {
+        Restart-Computer -ComputerName $dc.HostName -Force
+    }
+}
+
+
+# Import the Configuration Manager PowerShell module
+Import-Module (Get-WmiObject -Namespace root\sms -Class sms_providerlocation).NamespacePath
+
+# Connect to the SCCM Site
+$siteCode = "ABC"
+$sccm = New-CMSession -SiteCode $siteCode
+
+# Get the Package ID of the manual patch
+$patchPackage = Get-CMPackage -Name "Manual Patch for Domain Controllers"
+
+# Get the package source path from SCCM or WSUS
+$patchPath = $patchPackage.Source | Select-Object -ExpandProperty path
+
+# Get a list of domain controllers
+$domainControllers = Get-ADDomainController -Filter *
+
+# Iterate through each domain controller
+foreach ($dc in $domainControllers) {
+    # Copy the manual patch to the domain controller
+    Copy-Item -Path $patchPath -Destination "C:\patches\" -ToSession $session
+
+    # Install the manual patch
+    Invoke-Command -ComputerName $dc.HostName -ScriptBlock {Start-Process "C:\patches\patch.exe" -ArgumentList '/install' -Wait}
+
+    # Prompt for confirmation before restarting the domain controller
+    $restart = Read-Host "Do you want to restart the domain controller $($dc.HostName)? (Y/N)"
+    if ($restart -eq "Y") {
+        Restart-Computer -ComputerName $dc.HostName -Force
+    }
+}
+
+//powershell.exe -ExecutionPolicy Bypass -File PatchDomainControllers.ps1
+
+//WSUS
+
+# Import the WSUS PowerShell module
+Import-Module 'C:\Program Files\Update Services\Tools\Microsoft.UpdateServices.PowerShell.dll'
+
+# Connect to the WSUS server
+$wsusServer = "http://wsus-server:8530"
+$wsus = Connect-WsusServer -Server $wsusServer
+
+# Get the manual patch update
+$patchUpdate = Get-WsusUpdate -Approval Unapproved -UpdateTitle "Manual Patch for Domain Controllers"
+
+# Get the package source path
+$patchPath = $patchUpdate.DownloadLinks[0].Uri.AbsoluteUri
+
+# Get a list of domain controllers
+$domainControllers = Get-ADDomainController -Filter *
+
+# Iterate through each domain controller
+foreach ($dc in $domainControllers) {
+    # Copy the manual patch to the domain controller
+    Copy-Item -Path $patchPath -Destination "C:\patches\" -ToSession $session
+
+    # Install the manual patch
+    Invoke-Command -ComputerName $dc.HostName -ScriptBlock {Start-Process "C:\patches\patch.exe" -ArgumentList '/install' -Wait}
+
+    # Prompt for confirmation before restarting the domain controller
+    $restart = Read-Host "Do you want to restart the domain controller $($dc.HostName)? (Y/N)"
+    if ($restart -eq "Y") {
+        Restart-Computer -ComputerName $dc.HostName -Force
+    }
+}
+//GPO
+
+# Import the Group Policy PowerShell module
+Import-Module GroupPolicy
+
+# Name of the GPO to unlink
+$gpoNameToUnlink = "Old GPO"
+
+# Distinguished Name of the OU the GPO is linked to
+$ou = "OU=Domain Controllers,DC=yourdomain,DC=com"
+
+# Unlink the GPO from the OU
+Remove-GPLink -Name $gpoNameToUnlink -Target $ou
+
+# Name of the GPO to link
+$gpoNameToLink = "New GPO"
+
+# Link the GPO to the OU
+New-GPLink -Name $gpoNameToLink -Target $ou
+
+# Apply the GPO to the domain controllers
+$dc = Get-ADDomainController -Filter *
+foreach ($computer in $dc) {
+    Invoke-GPUpdate -Computer $computer.hostname -Force
+}
