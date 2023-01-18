@@ -1,0 +1,95 @@
+# Define the servers to patch
+$ServerNames = "Server1", "Server2", "Server3"
+
+# Import the Configuration Manager PowerShell module
+Import-Module ($Env:SMS_ADMIN_UI_PATH.Substring(0,$Env:SMS_ADMIN_UI_PATH.Length-5) + '\ConfigurationManager.psd1')
+
+# Connect to the SCCM site
+$SiteCode = "ABC"
+$SiteServer = "SCCMServer"
+Connect-CMSite -SiteCode $SiteCode -ServerName $SiteServer
+
+# Define the software update groups to deploy
+$SoftwareUpdateGroupNames = "Critical Updates", "Security Updates"
+
+# Iterate through the servers
+foreach ($ServerName in $ServerNames) {
+    # Iterate through the software update groups
+    foreach ($SoftwareUpdateGroupName in $SoftwareUpdateGroupNames) {
+        # Get the software update group object
+        $SoftwareUpdateGroup = Get-CMSoftwareUpdateGroup -Name $SoftwareUpdateGroupName
+        # Get the updates that are applicable to the server
+        $Updates = Get-CMSoftwareUpdate -ComputerName $ServerName -SoftwareUpdateGroupName $SoftwareUpdateGroup
+        # Install the updates one by one
+        foreach ($Update in $Updates) {
+            # Request the client to install the update
+            Invoke-WmiMethod -ComputerName $ServerName -Namespace "root\ccm\ClientSDK" -Class "CCM_SoftwareUpdatesManager" -Name "InstallUpdates" -ArgumentList $Update.CI_ID
+            # Wait for the installation to complete
+            while ( (Get-WmiObject -ComputerName $ServerName -Namespace "root\ccm\ClientSDK" -Query "SELECT * FROM CCM_SoftwareUpdatesManager WHERE IsBeingInstalled = 1").Count -ne 0) {
+                Start-Sleep -Seconds 30
+            }
+            # Check if the update requires a restart
+            if ($Update.RebootRequired) {
+                # Prompt for confirmation
+                $Restart = Read-Host "Do you want to restart the server $($ServerName)? (Y/N)"
+                if ($Restart -eq "Y") {
+                    Restart-Computer -ComputerName $ServerName -Force
+                    # Wait for the restart to complete
+                    Start-Sleep -s 300
+                }
+            }
+        }
+    }
+}
+// for domaine controllers
+
+# Import the Active Directory module
+Import-Module ActiveDirectory
+
+# Define the domain name
+$domain = "example.com"
+
+# Get the domain controllers
+$DomainControllers = Get-ADDomainController -Filter {OperatingSystem -like "*Server*"} -Server $domain
+
+# Import the Configuration Manager PowerShell module
+Import-Module ($Env:SMS_ADMIN_UI_PATH.Substring(0,$Env:SMS_ADMIN_UI_PATH.Length-5) + '\ConfigurationManager.psd1')
+
+# Connect to the SCCM site
+$SiteCode = "ABC"
+$SiteServer = "SCCMServer"
+
+Connect-CMSite -SiteCode $SiteCode -ServerName $SiteServer
+
+# Define the software update groups to deploy
+$SoftwareUpdateGroupNames = "Critical Updates", "Security Updates"
+
+# Iterate through the domain controllers
+foreach ($DC in $DomainControllers) {
+    # Iterate through the software update groups
+    foreach ($SoftwareUpdateGroupName in $SoftwareUpdateGroupNames) {
+        # Get the software update group object
+        $SoftwareUpdateGroup = Get-CMSoftwareUpdateGroup -Name $SoftwareUpdateGroupName
+        # Get the updates that are applicable to the domain controller
+        $Updates = Get-CMSoftwareUpdate -ComputerName $DC.Name -SoftwareUpdateGroupName $SoftwareUpdateGroup
+        # Install the updates one by one
+        foreach ($Update in $Updates) {
+            Invoke-WmiMethod -ComputerName $DC.Name -Namespace "root\ccm\ClientSDK" -Class "CCM_SoftwareUpdatesManager" -Name "InstallUpdates" -ArgumentList $Update.CI_ID
+            # Wait for the installation to complete
+            while ( (Get-WmiObject -ComputerName $DC.Name -Namespace "root\ccm\ClientSDK" -Query "SELECT * FROM CCM_SoftwareUpdatesManager WHERE IsBeingInstalled = 1").Count -ne 0) {
+                Start-Sleep -Seconds 30
+            }
+            # Check if the update requires a restart
+            if ($Update.RebootRequired) {
+                # Prompt for confirmation
+                $Restart = Read-Host "Do you want to restart the domain controller $($DC.Name)? (Y/N)"
+                if ($Restart -eq "Y") {
+                    Restart-Computer -ComputerName $DC.Name -Force
+                    # Wait for the restart to complete
+                    Start-Sleep -s 300
+                }
+            }
+        }
+    }
+}
+
