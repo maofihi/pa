@@ -1,0 +1,26 @@
+https://falcon.crowdstrike.com/login/?next=%2Fspotlight-v2%2Finstalled-patches
+https://www.reddit.com/r/crowdstrike/comments/ncki6q/comment/gy7spk1/
+
+
+
+event_simpleName=InstalledUpdates
+| eval rebootRequired=case(RebootRequired_decimal = "1", "YES", RebootRequired_decimal="0", "NO")
+| lookup aid_master aid OUTPUT Version MachineDomain OU SiteName 
+| stats latest(ComputerName) as computerName latest(Version) as osVersion latest(MachineDomain) as machineDomain latest(SiteName) as siteName latest(InstalledUpdateIds) as installedUpdates latest(ProductType) as productType latest(rebootRequired) as rebootRequired by aid 
+| search rebootRequired="YES" AND productType!=1
+
+//the resullt displayed by KB
+
+event_simpleName=InstalledUpdates
+| eval rebootRequired=case(RebootRequired_decimal = "1", "YES", RebootRequired_decimal="0", "NO")
+| lookup aid_master aid OUTPUT Version MachineDomain OU SiteName
+| stats latest(ComputerName) as computerName latest(Version) as osVersion latest(MachineDomain) as machineDomain latest(SiteName) as siteName latest(InstalledUpdateIds) as installedUpdates latest(ProductType) as productType latest(rebootRequired) as rebootRequired by aid
+| search rebootRequired="YES" AND productType!=1
+
+event_simpleName=InstalledUpdates
+| eval rebootRequired=case(RebootRequired_decimal = "1", "YES", RebootRequired_decimal="0", "NO")
+| eval required=case(isRequired_decimal = "1", "YES", isRequired_decimal="0", "NO")
+| eval kb_number=KB_number_string
+| lookup aid_master aid OUTPUT Version MachineDomain OU SiteName 
+| stats latest(ComputerName) as computerName latest(Version) as osVersion latest(MachineDomain) as machineDomain latest(SiteName) as siteName latest(InstalledUpdateIds) as installedUpdates latest(ProductType) as productType latest(rebootRequired) as rebootRequired latest(required) as required latest(kb_number) as kb_number by aid 
+| search rebootRequired="YES" AND productType!=1
