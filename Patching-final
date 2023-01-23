@@ -1,0 +1,37 @@
+# Import the module for the Windows Update feature
+Import-Module -Name PSWindowsUpdate
+
+# Get a list of critical and security updates
+$Updates = Get-WUList | Where-Object { $_.IsCritical -eq $true -or $_.IsSecurity -eq $true}
+
+# Check if there are any updates
+if ($Updates) {
+    Write-Host "Updates are available:"
+    $Updates | Format-Table -AutoSize
+    # Prompt the user for confirmation before installing the updates
+    $Confirmation = Read-Host "Do you want to install the updates? (Y/N)"
+    if ($Confirmation -eq "Y") {
+        # Install the updates
+        $Updates | Install-WindowsUpdate -AcceptAll
+        # Check if reboot is required
+        $reboot_required = (Get-WUHistory | Where-Object {$_.ResultCode -eq "RebootRequired"})
+        if($reboot_required) {
+            # Prompt the user for confirmation before reboot
+            $RebootConfirmation = Read-Host "Reboot is required to complete the updates. Do you want to reboot now? (Y/N)"
+            if ($RebootConfirmation -eq "Y") {
+                Restart-Computer
+            }
+        }
+        # Get the update history
+        $UpdateHistory = Get-WUHistory
+        # check if there's any history
+        if($UpdateHistory){
+        Write-Host "Update history:"
+        $UpdateHistory | Format-Table -AutoSize
+        }else{
+        Write-Host "No update history found."
+        }
+    }
+} else {
+    Write-Host "No updates are available."
+}
