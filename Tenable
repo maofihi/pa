@@ -1,0 +1,55 @@
+https://www.tenable.com/downloads
+
+https://www.tenable.com/downloads/nessus?loginAttempted=true
+https://www.tenable.com/downloads/tenable-appliance?loginAttempted=true
+https://docs.tenable.com/tenable-core/Nessus/Content/PDF/Tenable_Core_Nessus-User_Guide.pdf
+
+Download the ISO:
+Visit the Tenable website and download the Tenable Core Nessus installation ISO file.
+
+Mount the ISO:
+Open a terminal and navigate to the directory where you downloaded the ISO. Create a directory to mount the ISO and then mount it:
+
+sh
+
+mkdir /mnt/nessus_iso
+sudo mount -o loop /path/to/nessus_iso.iso /mnt/nessus_iso
+
+Navigate to the Mounted ISO:
+Move to the mounted ISO directory:
+
+sh
+
+cd /mnt/nessus_iso
+
+Run the Installer:
+Run the installer script (usually named install.sh) as root or using sudo:
+
+sh
+
+sudo ./install.sh
+
+Follow the Installer Prompts:
+The installer will guide you through the installation process. You'll need to accept the license agreement, specify installation directories, and provide administrative credentials.
+
+Start Tenable Core Nessus:
+After the installation is complete, you can start the Tenable Core Nessus service:
+
+sh
+
+sudo /etc/init.d/nessusd start
+
+Access the Web Interface:
+Open a web browser and navigate to https://localhost:8834. This is the default address for the Tenable Core Nessus web interface.
+
+Initial Configuration:
+Follow the on-screen instructions to configure the initial settings, including setting an administrative password.
+
+Activation and Licensing:
+If required, activate Tenable Core Nessus by providing the activation code.
+
+Login and Set Up Scans:
+Log in to the web interface using the administrative credentials you set. From there, you can configure scans, policies, and manage the security assessments.
+
+Secure and Maintain:
+Ensure that Tenable Core Nessus is properly secured, updated, and maintained according to your organization's security policies.
