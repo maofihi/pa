@@ -1,0 +1,56 @@
+To upgrade VMware Tools on a CentOS 7 virtual machine (VM) managed by VMware vCloud Director, follow these steps:
+
+    Log In to vCloud Director:
+    Log in to the vCloud Director web interface using your credentials.
+
+    Access the Virtual Machine:
+    Navigate to the organization and vApp containing the CentOS 7 VM for which you want to upgrade VMware Tools.
+
+    Initiate VMware Tools Upgrade:
+    Right-click on the CentOS 7 VM and select "Guest OS" > "Upgrade VMware Tools."
+
+    Mount VMware Tools ISO:
+    In the CentOS 7 VM, the VMware Tools ISO will be mounted automatically.
+
+    Open Terminal:
+    Log in to the CentOS 7 VM and open a terminal window.
+
+    Navigate to VMware Tools Directory:
+    Navigate to the VMware Tools directory. By default, it's usually mounted under /mnt or /media.
+
+    sh
+
+cd /mnt
+
+Extract VMware Tools:
+Extract the VMware Tools archive using the following command:
+
+sh
+
+tar xzvf VMwareTools-x.x.x-xxxx.tar.gz
+
+Navigate to Extracted Directory:
+Change into the extracted directory:
+
+sh
+
+cd vmware-tools-distrib
+
+Run the Installer:
+Run the VMware Tools installer using the following command:
+
+sh
+
+sudo ./vmware-install.pl
+
+Follow the prompts to proceed with the installation. Press Enter to accept the default values when prompted.
+
+Reboot the VM:
+After the installation is complete, reboot the CentOS 7 VM for the changes to take effect:
+
+sh
+
+sudo reboot
+
+Verify VMware Tools:
+After the VM has restarted, log in and verify that VMware Tools is running and updated. You can do this by checking the VMware Tools status within the VM.
