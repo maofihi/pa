@@ -1,0 +1,65 @@
+StoreFront:-
+Files:
+
+    %SystemRoot%\ServiceProfiles\NetworkService\AppData\Roaming\Citrix\SubscriptionsStore\**\PersistentDictionary.edb
+
+Processes:
+
+    %ProgramFiles%\Citrix\Receiver StoreFront\Services\SubscriptionsStoreService\Citrix.DeliveryServices.SubscriptionsStore.ServiceHost.exe
+    %ProgramFiles%\Citrix\Receiver StoreFront\Services\CredentialWallet\Citrix.DeliveryServices.CredentialWallet.ServiceHost.exe
+
+Cloud Connector
+
+Files:
+
+    %SystemRoot%\ServiceProfiles\NetworkService\HaDatabaseName.mdf
+    %SystemRoot%\ServiceProfiles\NetworkService\HaImportDatabaseName.mdf
+    %SystemRoot%\ServiceProfiles\NetworkService\HaDatabaseName_log.ldf
+    %SystemRoot%\ServiceProfiles\NetworkService\HaImportDatabaseName_log.ldf
+
+Folders:
+
+    %SystemDrive%\Logs\CDF
+    %ProgramData%\Citrix\WorkspaceCloud\Logs
+
+Processes:
+
+    %ProgramFiles%\Citrix\XaXdCloudProxy\XaXdCloudProxy.exe
+    %ProgramFiles%\Citrix\Broker\Service\HighAvailabilityService.exe
+    %ProgramFiles%\Citrix\ConfigSync\ConfigSyncService.exe
+    %ProgramFiles%\Citrix\ConfigSync\ConfigSyncRun.exe
+    %ProgramFiles%\Microsoft SQL Server\150\LocalDB\Binn\sqlservr.exe
+    %ProgramFiles(x86)%\Citrix\NetScaler Cloud Gateway\MetricsService.exe
+
+Virtual Delivery Agents(VDA)
+
+Updated June 2023
+
+Files:
+
+    %SystemRoot%\System32\drivers\CtxUvi.sys
+    %ProgramFiles%\Citrix\HDX\bin\CitrixLogonCsp.dll
+    mcsdif.vhdx (When using MCS IO)
+
+Processes:
+
+    %ProgramFiles%\Citrix\User Profile Manager\UserProfileManager.exe
+    %ProgramFiles%\Citrix\Virtual Desktop Agent\BrokerAgent.exe
+    %SystemRoot%\System32\drivers\CVhdFilter.sys (When using MCS IO)
+
+
+https://docs.citrix.com/en-us/tech-zone/build/tech-papers/antivirus-best-practices.html
+Review all files, folders, and processes for exclusion and confirm they exist before you create an exclusion policy.
+Implement multiple exclusion policies for different components instead of creating one large policy for all of them.
+To minimize the window of opportunity, implement a combination of real time and scheduled scans.
+Set real-time scanning to scan local drives only and not network drives.
+Disable scan on boot.
+Remove any unnecessary antivirus related entries from the Run key.
+Exclude the pagefile(s) from being scanned.
+Exclude Windows event logs from being scanned.
+Exclude IIS log files from being scanned.
+
+
+commands:
+Get-MpComputerStatus | select AMRunningMode
+
