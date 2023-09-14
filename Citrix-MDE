@@ -49,6 +49,8 @@ Processes:
 
 
 https://docs.citrix.com/en-us/tech-zone/build/tech-papers/antivirus-best-practices.html
+https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-compatibility?view=o365-worldwide
+
 Review all files, folders, and processes for exclusion and confirm they exist before you create an exclusion policy.
 Implement multiple exclusion policies for different components instead of creating one large policy for all of them.
 To minimize the window of opportunity, implement a combination of real time and scheduled scans.
@@ -58,6 +60,12 @@ Remove any unnecessary antivirus related entries from the Run key.
 Exclude the pagefile(s) from being scanned.
 Exclude Windows event logs from being scanned.
 Exclude IIS log files from being scanned.
+
+Antivirus/antimalware solution 	Onboarded to Defender for Endpoint? 	Microsoft Defender Antivirus state 	Smart App Control State
+Microsoft Defender Antivirus 	Yes 	Active mode 	N/A
+Microsoft Defender Antivirus 	No 	Active mode 	On, Evaluation, or Off
+A non-Microsoft antivirus/antimalware solution 	Yes 	Passive mode (automatically) 	N/A
+A non-Microsoft antivirus/antimalware solution 	No 	Disabled (automatically) 	Evaluation or On
 
 
 commands:
