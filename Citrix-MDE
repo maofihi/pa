@@ -67,7 +67,19 @@ Microsoft Defender Antivirus 	No 	Active mode 	On, Evaluation, or Off
 A non-Microsoft antivirus/antimalware solution 	Yes 	Passive mode (automatically) 	N/A
 A non-Microsoft antivirus/antimalware solution 	No 	Disabled (automatically) 	Evaluation or On
 
-
-commands:
+2012 and 2016 need clinet MDE installation other 2019 and 2022 no needed they can onboard just by installing onbard script. 
+Commands:
+winver
+Get-MpComputerStatus
 Get-MpComputerStatus | select AMRunningMode
+# View real-time protection status
+Get-MpPreference | Select-Object -ExpandProperty DisableRealtimeMonitoring
+
+# Enable real-time protection
+Set-MpPreference -DisableRealtimeMonitoring $false
+
+# Disable real-time protection
+Set-MpPreference -DisableRealtimeMonitoring $true
+Add-MpPreference -ExclusionPath "C:\Path\To\Excluded\Folder"
+Remove-MpPreference
 
