@@ -50,6 +50,7 @@ Processes:
 
 https://docs.citrix.com/en-us/tech-zone/build/tech-papers/antivirus-best-practices.html
 https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-compatibility?view=o365-worldwide
+https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide
 
 Review all files, folders, and processes for exclusion and confirm they exist before you create an exclusion policy.
 Implement multiple exclusion policies for different components instead of creating one large policy for all of them.
@@ -66,6 +67,11 @@ Microsoft Defender Antivirus 	Yes 	Active mode 	N/A
 Microsoft Defender Antivirus 	No 	Active mode 	On, Evaluation, or Off
 A non-Microsoft antivirus/antimalware solution 	Yes 	Passive mode (automatically) 	N/A
 A non-Microsoft antivirus/antimalware solution 	No 	Disabled (automatically) 	Evaluation or On
+
+Server version 	AV 	EDR
+Windows Server 2012 R2 	Yes. 	Yes.
+Windows Server 2016 	Built-in 	Yes.
+Windows Server 2019 or later 	Built-in 	Built-in
 
 2012 and 2016 need clinet MDE installation other 2019 and 2022 no needed they can onboard just by installing onbard script. 
 Commands:
