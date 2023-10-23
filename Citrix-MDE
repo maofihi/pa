@@ -51,6 +51,7 @@ Processes:
 https://docs.citrix.com/en-us/tech-zone/build/tech-papers/antivirus-best-practices.html
 https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-compatibility?view=o365-worldwide
 https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide
+https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/onboarding-and-servicing-non-persistent-vdi-machines-with/ba-p/1360721
 
 Review all files, folders, and processes for exclusion and confirm they exist before you create an exclusion policy.
 Implement multiple exclusion policies for different components instead of creating one large policy for all of them.
